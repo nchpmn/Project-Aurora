@@ -4,6 +4,7 @@
 
 // declare global variables
 /* These pins are correct - strips use the order "GRB" */
+int rPin = 10;
 int gPin = 9;
 int bPin = 11;
 
@@ -14,6 +15,10 @@ void setup() {
   pinMode(bPin, OUTPUT);
   pinMode(gPin, OUTPUT);
 
+  // enable serial output
+  // mostly for debugging - can be disabled in final product
+  Serial.begin(9600);
+}
 
 void setRGB(int redVal, int greenVal, int blueVal) {
   // set the R, G, B value to output pins
