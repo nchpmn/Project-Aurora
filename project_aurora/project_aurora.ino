@@ -120,13 +120,16 @@ void loop() {
 
 
 
-/* DATASHEETS & AUXILLIARY INFORMATION
+/* DATASHEETS & AUXILIARY INFORMATION
 
     DFRobot RGB LED Strip Driver Shield v1.0
     https://wiki.dfrobot.com/RGB_LED_Strip_Driver_Shield_SKU_DFR0274
     Inputs: 4: IR signal
     Outputs: 9, 10, 11 (PWM): RGB levels
     Additional 12V power in required
+
+    IR Remote Button Codes
+    https://docs.google.com/spreadsheets/d/11EeZW00qZXZrF_tCHybD09vXJeLdS_K2JR_PmxucZL4/edit#gid=12233873
 
     Duoinotech RGB LED Module
     https://www.jaycar.com.au/medias/sys_master/images/images/9426937643038/XC4428-dataSheetMain.pdf
