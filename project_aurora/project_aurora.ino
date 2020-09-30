@@ -2,9 +2,6 @@
 // --  RGB CONRTOLLER  --
 // Info & Datasheets at bottom of code
 
-// import libraries
-#include "lib/IRremote/src/IRremote.h"
-
 // declare global variables
 /* These pins are correct - strips use the order "GRB" */
 int rPin = 10;
