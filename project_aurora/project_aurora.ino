@@ -17,6 +17,11 @@ int irPin = 4;
 IRrecv irSignal(irPin);
 decode_results results;
 
+// RGB Values // Gotta store those colours somewhere!
+int rVal = 0;
+int gVal = 0;
+int bVal = 0;
+
 
 // === begin main setup
 void setup() {
@@ -35,11 +40,23 @@ void setup() {
   Serial.println("IR READY");
 }
 
-void setRGB(int redVal, int greenVal, int blueVal) {
+void setRGB(int redValue, int greenValue, int blueValue) {
   // set the R, G, B value to output pins
-  analogWrite(rPin, redVal);
-  analogWrite(gPin, greenVal);
-  analogWrite(bPin, blueVal);
+  analogWrite(rPin, redValue);
+  analogWrite(gPin, greenValue);
+  analogWrite(bPin, blueValue);
+
+  // set the global variable r, g, b values
+  rVal = redValue;
+  gVal = greenValue;
+  bVal = blueValue;
+
+  // print the current colour values
+  Serial.print(rVal);
+  Serial.print("\t");
+  Serial.print(gVal);
+  Serial.print("\t");
+  Serial.println(bVal);
 }
 
 // === begin main loop
