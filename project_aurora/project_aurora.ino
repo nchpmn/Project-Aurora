@@ -70,20 +70,21 @@ void loop() {
     Serial.println(results.value);
 
     switch (results.value) {
+      // === solid colours - primary
       case 16718565:
         // solid red
         Serial.println("DETECT:\tRED");
-        setRGB(255,0,0);
+        setRGB(255, 0, 0);
         break;
       case 16751205:
         // solid green
         Serial.println("DETECT:\tGREEN");
-        setRGB(0,255,0);
+        setRGB(0, 255, 0);
         break;
       case 16753245:
         // solid green
         Serial.println("DETECT:\tBLUE");
-        setRGB(0,0,255);
+        setRGB(0, 0, 255);
         break;
       case 16720605:
         // solid green
@@ -111,7 +112,7 @@ void loop() {
         }
         break;
     }
-    
+
     irSignal.resume(); // Receive the next value
   }
 }
@@ -131,5 +132,5 @@ void loop() {
     https://www.jaycar.com.au/medias/sys_master/images/images/9426937643038/XC4428-dataSheetMain.pdf
     https://arduinomodules.info/ky-009-rgb-full-color-led-smd-module/
     Note: Pins are labelled incorrectly on PCB - correct order is GROUND, GREEN, RED, BLUE
-    
+
 */
