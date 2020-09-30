@@ -46,7 +46,21 @@ void setRGB(int redVal, int greenVal, int blueVal) {
 void loop() {
 
   if (irSignal.decode(&results)) {
-    Serial.println(results.value, HEX);
+    Serial.println(results.value);
+
+    switch (results.value) {
+      case 16718565:
+        // solid red
+        setRGB(255,0,0);
+        Serial.println("RED");
+        break;
+      case 16751205:
+        // solid green
+        setRGB(0,255,0);
+        Serial.println("GREEN");
+        break;
+    }
+    
     irSignal.resume(); // Receive the next value
   }
 }
