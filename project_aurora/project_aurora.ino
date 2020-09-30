@@ -68,13 +68,13 @@ void loop() {
     switch (results.value) {
       case 16718565:
         // solid red
+        Serial.println("DETECT:\tRED");
         setRGB(255,0,0);
-        Serial.println("RED");
         break;
       case 16751205:
         // solid green
+        Serial.println("DETECT:\tGREEN");
         setRGB(0,255,0);
-        Serial.println("GREEN");
         break;
     }
     
