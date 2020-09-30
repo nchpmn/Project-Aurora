@@ -2,22 +2,37 @@
 // --  RGB CONRTOLLER  --
 // Info & Datasheets at bottom of code
 
-// declare global variables
-/* These pins are correct - strips use the order "GRB" */
+// === import libraries
+// IRremote - to read & decode IR signals
+#include <IRremote.h>
+
+// === declare global variables
+// RGB Pins // These pins are correct - strips use the order "GRB"
 int rPin = 10;
 int gPin = 9;
 int bPin = 11;
 
+// IR receiver
+int irPin = 4;
+IRrecv irSignal(irPin);
+decode_results results;
 
+
+// === begin main setup
 void setup() {
+  // enable serial output
+  // mostly for debugging - can be disabled in final product
+  Serial.begin(9600);
+  
   // set pin modes
   pinMode(rPin, OUTPUT);
   pinMode(bPin, OUTPUT);
   pinMode(gPin, OUTPUT);
+  Serial.println("RGB READY");
 
-  // enable serial output
-  // mostly for debugging - can be disabled in final product
-  Serial.begin(9600);
+  // start IR 'listening'
+  irSignal.enableIRIn();
+  Serial.println("IR READY");
 }
 
 void setRGB(int redVal, int greenVal, int blueVal) {
@@ -27,11 +42,13 @@ void setRGB(int redVal, int greenVal, int blueVal) {
   analogWrite(bPin, blueVal);
 }
 
+// === begin main loop
 void loop() {
-  setRGB(35,100,255);
-  delay(2500);
-  setRGB(255,0,23);
-  delay(2500);
+
+  if (irSignal.decode(&results)) {
+    Serial.println(results.value, HEX);
+    irSignal.resume(); // Receive the next value
+  }
 }
 
 
