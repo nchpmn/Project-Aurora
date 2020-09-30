@@ -76,6 +76,12 @@ void loop() {
         Serial.println("DETECT:\tGREEN");
         setRGB(0,255,0);
         break;
+      case 16753245:
+        // solid green
+        Serial.println("DETECT:\tBLUE");
+        setRGB(0,0,255);
+        break;
+        
     }
     
     irSignal.resume(); // Receive the next value
