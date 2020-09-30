@@ -7,9 +7,9 @@
 // Tell IRremote which Arduino pin is connected to the IR Receiver (TSOP4838)
 //
 #if defined(ESP32)
-int IR_RECEIVE_PIN = 15;
+int IR_RECEIVE_PIN = 4;
 #else
-int IR_RECEIVE_PIN = 11;
+int IR_RECEIVE_PIN = 4;
 #endif
 IRrecv IrReceiver(IR_RECEIVE_PIN);
 
