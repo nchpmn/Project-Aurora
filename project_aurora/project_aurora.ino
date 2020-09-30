@@ -22,13 +22,17 @@ int rVal = 0;
 int gVal = 0;
 int bVal = 0;
 
+// Addition & Delay Variables // How big are the jumps?
+int diffVal = 20;
+int delayTime = 1000;
+
 
 // === begin main setup
 void setup() {
   // enable serial output
   // mostly for debugging - can be disabled in final product
   Serial.begin(9600);
-  
+
   // set pin modes
   pinMode(rPin, OUTPUT);
   pinMode(bPin, OUTPUT);
@@ -84,9 +88,28 @@ void loop() {
       case 16720605:
         // solid green
         Serial.println("DETECT:\tBLUE");
-        setRGB(255,255,255);
-        break;        
-        
+        setRGB(255, 255, 255);
+        break;
+
+      // === add/minus colours
+      case 16722135:
+        // add red
+        Serial.println("DETECT:\tADD RED");
+        if (rVal + diffVal > 255) {
+          setRGB(255, gVal, bVal);
+        } else {
+          setRGB(rVal + diffVal, gVal, bVal);
+        }
+        break;
+      case 16713975:
+        // minus red
+        Serial.println("DETECT:\tMINUS RED");
+        if (rVal - diffVal < 0) {
+          setRGB(0, gVal, bVal);
+        } else {
+          setRGB(rVal - diffVal, gVal, bVal);
+        }
+        break;
     }
     
     irSignal.resume(); // Receive the next value
