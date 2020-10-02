@@ -41,7 +41,7 @@ void setup() {
   Serial.println("IR READY");
 
   //set start colour for RGB
-  m.setRGB(0,0,0); // Start red
+  m.setRGB(255,0,0); // Start red
 }
 
 // === begin main loop
