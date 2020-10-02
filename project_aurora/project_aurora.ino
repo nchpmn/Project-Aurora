@@ -20,7 +20,7 @@ decode_results results;
 // RGB Values // Gotta store those colours somewhere!
 int rVal = 0;
 int gVal = 0;
-int bVal = 0;
+int bVal = 128;
 
 // Addition & Delay Variables // How big are the jumps?
 int diffVal = 20;
@@ -129,6 +129,24 @@ void loop() {
           setRGB(rVal, gVal - diffVal, bVal);
         }
         break;
+//      case 16738455:
+//        // add blue
+//        Serial.println("DETECT:\tADD BLUE");
+//        if (bVal + diffVal > 255) {
+//          setRGB(rVal, gVal, 255);
+//        } else {
+//          setRGB(rVal, gVal, bVal + diffVal);
+//        }
+//        break;
+//      case 16730295:
+//        // minus blue
+//        Serial.println("DETECT:\tMINUS BLUE");
+//        if (bVal - diffVal < 0) {
+//          setRGB(rVal, gVal, 0);
+//        } else {
+//          setRGB(rVal, gVal, bVal - diffVal);
+//        }
+//        break;
     }
 
     irSignal.resume(); // Receive the next value
