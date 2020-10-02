@@ -123,10 +123,10 @@ void loop() {
           setRGB(rVal - diffVal, gVal, bVal);
         }
         break;
-      case 16771095:
+      case 16755285:
         // add blue
         Serial.println("DETECT:\tADD BLUE");
-        setRGB(rVal, gVal, 200);
+        setRGB(0, 0, 200);
         break;
 
       case 16754775:
@@ -147,6 +147,12 @@ void loop() {
           setRGB(rVal, gVal - diffVal, bVal);
         }
         break;
+
+      case 0:
+        // IR broken
+        Serial.println("DETECT:\tIR BROKEN");
+        results.value = 2345;
+        irSignal.resume();
         
 
     }
