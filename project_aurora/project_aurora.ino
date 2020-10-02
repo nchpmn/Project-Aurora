@@ -45,22 +45,27 @@ void setup() {
 }
 
 void setRGB(int redValue, int greenValue, int blueValue) {
+  Serial.println("begin setRGB");
   // set the R, G, B value to output pins
   analogWrite(rPin, redValue);
   analogWrite(gPin, greenValue);
   analogWrite(bPin, blueValue);
-
+  Serial.println("finish analogWrite");
+  
   // set the global variable r, g, b values
   rVal = redValue;
   gVal = greenValue;
   bVal = blueValue;
-
+  Serial.println("finish setting variables");
+  
   // print the current colour values
   Serial.print(rVal);
   Serial.print("\t");
   Serial.print(gVal);
   Serial.print("\t");
   Serial.println(bVal);
+  Serial.println("end setRGB");
+  return;
 }
 
 // === begin main loop
@@ -118,6 +123,12 @@ void loop() {
           setRGB(rVal - diffVal, gVal, bVal);
         }
         break;
+      case 16771095:
+        // add blue
+        Serial.println("DETECT:\tADD BLUE");
+        setRGB(rVal, gVal, 200);
+        break;
+
       case 16754775:
         // add green
         Serial.println("DETECT:\tADD GREEN");
@@ -136,27 +147,12 @@ void loop() {
           setRGB(rVal, gVal - diffVal, bVal);
         }
         break;
-//      case 16738455:
-//        // add blue
-//        Serial.println("DETECT:\tADD BLUE");
-//        if (bVal + diffVal > 255) {
-//          setRGB(rVal, gVal, 255);
-//        } else {
-//          setRGB(rVal, gVal, bVal + diffVal);
-//        }
-//        break;
-//      case 16730295:
-//        // minus blue
-//        Serial.println("DETECT:\tMINUS BLUE");
-//        if (bVal - diffVal < 0) {
-//          setRGB(rVal, gVal, 0);
-//        } else {
-//          setRGB(rVal, gVal, bVal - diffVal);
-//        }
-//        break;
-    }
+        
 
+    }
+    Serial.println("begin IR resume");
     irSignal.resume(); // Receive the next value
+    Serial.println("end IR resume");
   }
 }
 
