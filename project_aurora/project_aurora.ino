@@ -20,10 +20,10 @@ decode_results results;
 // RGB Values // Gotta store those colours somewhere!
 int rVal = 0;
 int gVal = 0;
-int bVal = 128;
+int bVal = 0;
 
 // Addition & Delay Variables // How big are the jumps?
-int diffVal = 20;
+int diffVal = 32;
 int delayTime = 1000;
 
 
@@ -123,12 +123,6 @@ void loop() {
           setRGB(rVal - diffVal, gVal, bVal);
         }
         break;
-      case 16755285:
-        // add blue
-        Serial.println("DETECT:\tADD BLUE");
-        setRGB(0, 0, 200);
-        break;
-
       case 16754775:
         // add green
         Serial.println("DETECT:\tADD GREEN");
