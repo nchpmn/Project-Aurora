@@ -87,8 +87,8 @@ void loop() {
         setRGB(0, 0, 255);
         break;
       case 16720605:
-        // solid green
-        Serial.println("DETECT:\tBLUE");
+        // solid white
+        Serial.println("DETECT:\tWHITE");
         setRGB(255, 255, 255);
         break;
 
