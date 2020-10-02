@@ -92,6 +92,13 @@ void loop() {
         setRGB(255, 255, 255);
         break;
 
+      // === solid colours - secondary
+      case 16734375:
+        // solid purple 3
+        Serial.println("DETECT:\tPURPLE 3");
+        setRGB(255, 0, 255);
+        break;
+
       // === add/minus colours
       case 16722135:
         // add red
