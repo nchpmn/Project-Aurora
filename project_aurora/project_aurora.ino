@@ -70,90 +70,92 @@ void setRGB(int redValue, int greenValue, int blueValue) {
 
 // === begin main loop
 void loop() {
-//
-//  if (irSignal.decode(&results)) {
-//    Serial.println(results.value);
-//
-//    switch (results.value) {
-//      // === solid colours - primary
-//      case 16718565:
-//        // solid red
-//        Serial.println("DETECT:\tRED");
-//        setRGB(255, 0, 0);
-//        break;
-//      case 16751205:
-//        // solid green
-//        Serial.println("DETECT:\tGREEN");
-//        setRGB(0, 255, 0);
-//        break;
-//      case 16753245:
-//        // solid green
-//        Serial.println("DETECT:\tBLUE");
-//        setRGB(0, 0, 255);
-//        break;
-//      case 16720605:
-//        // solid white
-//        Serial.println("DETECT:\tWHITE");
-//        setRGB(255, 255, 255);
-//        break;
-//
-//      // === solid colours - secondary
-//      case 16734375:
-//        // solid purple 3
-//        Serial.println("DETECT:\tPURPLE 3");
-//        setRGB(255, 0, 255);
-//        break;
-//
-//      // === add/minus colours
-//      case 16722135:
-//        // add red
-//        Serial.println("DETECT:\tADD RED");
-//        if (rVal + diffVal > 255) {
-//          setRGB(255, gVal, bVal);
-//        } else {
-//          setRGB(rVal + diffVal, gVal, bVal);
-//        }
-//        break;
-//      case 16713975:
-//        // minus red
-//        Serial.println("DETECT:\tMINUS RED");
-//        if (rVal - diffVal < 0) {
-//          setRGB(0, gVal, bVal);
-//        } else {
-//          setRGB(rVal - diffVal, gVal, bVal);
-//        }
-//        break;
-//      case 16754775:
-//        // add green
-//        Serial.println("DETECT:\tADD GREEN");
-//        if (gVal + diffVal > 255) {
-//          setRGB(rVal, 255, bVal);
-//        } else {
-//          setRGB(rVal, gVal + diffVal, bVal);
-//        }
-//        break;
-//      case 16746615:
-//        // minus green
-//        Serial.println("DETECT:\tMINUS GREEN");
-//        if (gVal - diffVal < 0) {
-//          setRGB(rVal, 0, bVal);
-//        } else {
-//          setRGB(rVal, gVal - diffVal, bVal);
-//        }
-//        break;
-//
-//      case 0:
-//        // IR broken
-//        Serial.println("DETECT:\tIR BROKEN");
-//        results.value = 2345;
-//        irSignal.resume();
-//        
-//
-//    }
-//    Serial.println("begin IR resume");
-//    irSignal.resume(); // Receive the next value
-//    Serial.println("end IR resume");
-//  }
+
+/*
+  if (irSignal.decode(&results)) {
+    Serial.println(results.value);
+
+    switch (results.value) {
+      // === solid colours - primary
+      case 16718565:
+        // solid red
+        Serial.println("DETECT:\tRED");
+        setRGB(255, 0, 0);
+        break;
+      case 16751205:
+        // solid green
+        Serial.println("DETECT:\tGREEN");
+        setRGB(0, 255, 0);
+        break;
+      case 16753245:
+        // solid green
+        Serial.println("DETECT:\tBLUE");
+        setRGB(0, 0, 255);
+        break;
+      case 16720605:
+        // solid white
+        Serial.println("DETECT:\tWHITE");
+        setRGB(255, 255, 255);
+        break;
+
+      // === solid colours - secondary
+      case 16734375:
+        // solid purple 3
+        Serial.println("DETECT:\tPURPLE 3");
+        setRGB(255, 0, 255);
+        break;
+
+      // === add/minus colours
+      case 16722135:
+        // add red
+        Serial.println("DETECT:\tADD RED");
+        if (rVal + diffVal > 255) {
+          setRGB(255, gVal, bVal);
+        } else {
+          setRGB(rVal + diffVal, gVal, bVal);
+        }
+        break;
+      case 16713975:
+        // minus red
+        Serial.println("DETECT:\tMINUS RED");
+        if (rVal - diffVal < 0) {
+          setRGB(0, gVal, bVal);
+        } else {
+          setRGB(rVal - diffVal, gVal, bVal);
+        }
+        break;
+      case 16754775:
+        // add green
+        Serial.println("DETECT:\tADD GREEN");
+        if (gVal + diffVal > 255) {
+          setRGB(rVal, 255, bVal);
+        } else {
+          setRGB(rVal, gVal + diffVal, bVal);
+        }
+        break;
+      case 16746615:
+        // minus green
+        Serial.println("DETECT:\tMINUS GREEN");
+        if (gVal - diffVal < 0) {
+          setRGB(rVal, 0, bVal);
+        } else {
+          setRGB(rVal, gVal - diffVal, bVal);
+        }
+        break;
+
+      case 0:
+        // IR broken
+        Serial.println("DETECT:\tIR BROKEN");
+        results.value = 2345;
+        irSignal.resume();
+        
+
+    }
+    Serial.println("begin IR resume");
+    irSignal.resume(); // Receive the next value
+    Serial.println("end IR resume");
+  }
+  */
 }
 
 
