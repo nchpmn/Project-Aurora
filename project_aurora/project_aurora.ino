@@ -111,6 +111,24 @@ void loop() {
           setRGB(rVal - diffVal, gVal, bVal);
         }
         break;
+      case 16754775:
+        // add green
+        Serial.println("DETECT:\tADD GREEN");
+        if (gVal + diffVal > 255) {
+          setRGB(rVal, 255, bVal);
+        } else {
+          setRGB(rVal, gVal + diffVal, bVal);
+        }
+        break;
+      case 16746615:
+        // minus green
+        Serial.println("DETECT:\tMINUS GREEN");
+        if (gVal - diffVal < 0) {
+          setRGB(rVal, 0, bVal);
+        } else {
+          setRGB(rVal, gVal - diffVal, bVal);
+        }
+        break;
     }
 
     irSignal.resume(); // Receive the next value
