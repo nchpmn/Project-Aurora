@@ -27,16 +27,18 @@ int rVal = 0;
 int gVal = 0;
 int bVal = 0;
 
+int delayTime = 40;
+
 
 // === begin main setup
 void setup() {
   // enable serial output
-  // mostly for debugging - can be disabled in final product
+  // mostly for debugging
   Serial.begin(9600);
 
-  /*// start IR 'listening'
+  // start IR 'listening'
   irSignal.enableIRIn();
-  Serial.println("IR READY");*/
+  Serial.println("IR READY");
 
   //set start colour for RGB
   m.setRGB(0,0,0); // Start red
@@ -44,14 +46,8 @@ void setup() {
 
 // === begin main loop
 void loop() {
-  m.setRGB(255,0,0);
-  m.tick();
-  delay(1000);
-  m.setRGB(0,0,255);
-  m.tick();
-  delay(1000);
 
-/*
+
   if (irSignal.decode(&results)) {
     Serial.println(results.value);
 
@@ -60,24 +56,31 @@ void loop() {
       case 16718565:
         // solid red
         Serial.println("DETECT:\tRED");
-        setRGB(255, 0, 0);
+        m.setRGB(255, 0, 0);
         break;
       case 16751205:
         // solid green
         Serial.println("DETECT:\tGREEN");
-        setRGB(0, 255, 0);
+        m.setRGB(0, 255, 0);
         break;
       case 16753245:
         // solid green
         Serial.println("DETECT:\tBLUE");
-        setRGB(0, 0, 255);
+        m.setRGB(0, 0, 255);
         break;
       case 16720605:
         // solid white
         Serial.println("DETECT:\tWHITE");
-        setRGB(255, 255, 255);
+        m.setRGB(255, 255, 255);
         break;
+    }
+    
+    m.tick(); // update colours
+    irSignal.resume(); // Receive the next value
+  }
+}
 
+/*
       // === solid colours - secondary
       case 16734375:
         // solid purple 3
@@ -136,7 +139,7 @@ void loop() {
     Serial.println("end IR resume");
   }
   */
-}
+
 
 
 
