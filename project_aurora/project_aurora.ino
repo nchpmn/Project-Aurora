@@ -5,12 +5,17 @@
 // === import libraries
 // IRremote - to read & decode IR signals
 #include <IRremote.h>
+// RGB Mood - to cauclate & control colours
+#include <RGBMood.h>
 
 // === declare global variables
 // RGB Pins // These pins are correct - strips use the order "GRB"
-int rPin = 10;
-int gPin = 9;
-int bPin = 11;
+const int rPin = 10;
+const int gPin = 9;
+const int bPin = 11;
+
+// Create RGB object
+RGBMood m(rPin, gPin, bPin);
 
 // IR receiver
 int irPin = 4;
@@ -22,10 +27,6 @@ int rVal = 0;
 int gVal = 0;
 int bVal = 0;
 
-// Addition & Delay Variables // How big are the jumps?
-int diffVal = 32;
-int delayTime = 1000;
-
 
 // === begin main setup
 void setup() {
@@ -33,43 +34,22 @@ void setup() {
   // mostly for debugging - can be disabled in final product
   Serial.begin(9600);
 
-  // set pin modes
-  pinMode(rPin, OUTPUT);
-  pinMode(bPin, OUTPUT);
-  pinMode(gPin, OUTPUT);
-  Serial.println("RGB READY");
-
-  // start IR 'listening'
+  /*// start IR 'listening'
   irSignal.enableIRIn();
-  Serial.println("IR READY");
-}
+  Serial.println("IR READY");*/
 
-void setRGB(int redValue, int greenValue, int blueValue) {
-  Serial.println("begin setRGB");
-  // set the R, G, B value to output pins
-  analogWrite(rPin, redValue);
-  analogWrite(gPin, greenValue);
-  analogWrite(bPin, blueValue);
-  Serial.println("finish analogWrite");
-  
-  // set the global variable r, g, b values
-  rVal = redValue;
-  gVal = greenValue;
-  bVal = blueValue;
-  Serial.println("finish setting variables");
-  
-  // print the current colour values
-  Serial.print(rVal);
-  Serial.print("\t");
-  Serial.print(gVal);
-  Serial.print("\t");
-  Serial.println(bVal);
-  Serial.println("end setRGB");
-  return;
+  //set start colour for RGB
+  m.setRGB(0,0,0); // Start red
 }
 
 // === begin main loop
 void loop() {
+  m.setRGB(255,0,0);
+  m.tick();
+  delay(1000);
+  m.setRGB(0,0,255);
+  m.tick();
+  delay(1000);
 
 /*
   if (irSignal.decode(&results)) {
