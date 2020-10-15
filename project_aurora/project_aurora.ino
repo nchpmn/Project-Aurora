@@ -162,4 +162,8 @@ void loop() {
     https://arduinomodules.info/ky-009-rgb-full-color-led-smd-module/
     Note: Pins are labelled incorrectly on PCB - correct order is GROUND, GREEN, RED, BLUE
 
+    RGBMood Arduino Library
+    https://github.com/Tibus/Arduino-RGB-Mood
+    https://forum.arduino.cc/index.php?topic=90160.0
+
 */
