@@ -57,21 +57,25 @@ void loop() {
       case 16718565:
         // solid red
         Serial.println("DETECT:\tRED");
+        m.setMode(RGBMood::FIX_MODE);
         m.setRGB(255, 0, 0);
         break;
       case 16751205:
         // solid green
         Serial.println("DETECT:\tGREEN");
+        m.setMode(RGBMood::FIX_MODE);
         m.setRGB(0, 255, 0);
         break;
       case 16753245:
         // solid green
         Serial.println("DETECT:\tBLUE");
+        m.setMode(RGBMood::FIX_MODE);
         m.setRGB(0, 0, 255);
         break;
       case 16720605:
         // solid white
         Serial.println("DETECT:\tWHITE");
+        m.setMode(RGBMood::FIX_MODE);
         m.setRGB(255, 255, 255);
         break;
 
@@ -79,6 +83,7 @@ void loop() {
       case 16734375:
         // solid purple 3
         Serial.println("DETECT:\tPURPLE 3");
+        m.setMode(RGBMood::FIX_MODE);
         m.setRGB(255, 0, 255);
         break;
 
@@ -86,8 +91,9 @@ void loop() {
       case 16722135:
         // add red
         Serial.println("DETECT:\tADD RED");
+        m.setMode(RGBMood::FIX_MODE);
         if (rVal + diffAmount > 255) {
-          m.setRGB(255, gVal, bVal);
+          m.setRGB(255, m.green(), m.blue());
         } else {
           m.setRGB(m.red() + diffAmount, m.green(), m.blue());
         }
