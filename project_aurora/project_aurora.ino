@@ -28,6 +28,7 @@ int gVal = 0;
 int bVal = 0;
 
 int delayTime = 40;
+int diffAmount = 32;
 
 
 // === begin main setup
@@ -79,6 +80,17 @@ void loop() {
         // solid purple 3
         Serial.println("DETECT:\tPURPLE 3");
         m.setRGB(255, 0, 255);
+        break;
+
+      // === add/minus colours
+      case 16722135:
+        // add red
+        Serial.println("DETECT:\tADD RED");
+        if (rVal + diffAmount > 255) {
+          m.setRGB(255, gVal, bVal);
+        } else {
+          m.setRGB(m.red() + diffAmount, m.green(), m.blue());
+        }
         break;
     }
     
@@ -151,7 +163,7 @@ void loop() {
     DFRobot RGB LED Strip Driver Shield v1.0
     https://wiki.dfrobot.com/RGB_LED_Strip_Driver_Shield_SKU_DFR0274
     Inputs: 4: IR signal
-    Outputs: 9, 10, 11 (PWM): RGB levels
+    Outputs: 9, 10, 11 (PWM): RGB levels (also sent through aux contacts - +12V)
     Additional 12V power in required
 
     IR Remote Button Codes
