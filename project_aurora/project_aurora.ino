@@ -98,6 +98,17 @@ void loop() {
           m.setRGB(m.red() + diffAmount, m.green(), m.blue());
         }
         break;
+
+      // === animations!
+      case 16773135:
+        // random colours - party mode!
+        Serial.println("DETECT:\tPARTY MODE");
+        m.setMode(RGBMood::RANDOM_HUE_MODE);
+        m.setHoldingTime(2000); // Hold each colour for 2 seconds
+        m.setFadingSteps(150); // 150 steps in each transition
+        m.setFadingSpeed(50); // Each step lasts 50ms. Complete fade 150*50 = 7.5 seconds
+        m.setHSB(random(359), 255, 255); // Only change hue - set brightness / saturation at 100%
+        
     }
     
     m.tick(); // update colours
